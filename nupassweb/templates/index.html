@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>NuPassWeb</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>NuPassWeb</h1>
+      <p>Because your users can't deal with <a href="http://linux.die.net/man/1/pwmake">pwmake</a></p>
+    </div>
+  </div>
+  <div class="container">
+    <p>Here are some passwords:</p>
+    <textarea class="form-control" rows="5">{{ passwords }}</textarea>
+    <p><br />Refresh the page for more passwords.</p>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted">
+        NuPassWeb is <a href="https://www.gnu.org/philosophy/free-sw.en.html" target="_blank">Free Software</a> available under the GPLv2. See our <a href="https://github.com/NuPass/NuPassWeb">GitHub</a>.<br />
+        Copyright &copy; 2017 by <a href="https://github.com/seancallaway">Sean Callaway</a>. 
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
