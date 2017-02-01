@@ -10,5 +10,5 @@
 from flask import Flask
 
 app = Flask(__name__)
-
+# am aware of the pylint complaints with these lines. Ignoring for now.
 from nupassweb import views

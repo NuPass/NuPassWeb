@@ -9,7 +9,6 @@
     :copyright: (c) 2016 by Sean Callaway.
     :license: GNU GPL v2, see LICENSE for more details.
 """
-import sys
 import os
 import random
 
@@ -51,4 +50,3 @@ def gen_pass():
     num2 = random.randint(0, 9)
 
     return str(num1) + word1 + get_spec_char() + word2 + str(num2)
-
