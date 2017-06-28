@@ -8,7 +8,8 @@
     :license: GNU GPL v2, see LICENSE for more details.
 """
 from flask import render_template, request
-from nupassweb import app, nupass
+from nupass import gen_pass
+from nupassweb import app
 
 @app.route('/')
 def index():
@@ -26,5 +27,5 @@ def index():
         passes = "If more than 30 passwords are required, please rerun the " \
                  "tool or consider using the command-line version.\n\n"
     for _ in range(0, qty):
-        passes = passes + nupass.gen_pass() + "\n"
+        passes = passes + gen_pass() + "\n"
     return render_template('index.html', passwords=passes, numRows=qty+notice)
