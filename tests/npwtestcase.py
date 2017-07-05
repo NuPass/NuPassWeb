@@ -36,7 +36,7 @@ class NPWTestCase(unittest.TestCase):
         data = json.loads(response.data)
         self.assertEqual(data["notice_str"],
                          "If more than 20 passwords are required, please " +
-                         "the tool or consider using the command-line " +
+                         "rerun the tool or consider using the command-line " +
                          "version.\n\n")
         self.assertEqual(len(data["passwords"]), 20)
         self.assertEqual(data["rows"], 22)
