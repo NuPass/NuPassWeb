@@ -29,10 +29,10 @@ def gen_pass():
     qty = request.args.get('qty', 5, type=int)
     notice = 0
     notice_str = ""
-    if qty > 30:
-        qty = 30
+    if qty > 20:
+        qty = 20
         notice = 2
-        notice_str = "If more than 30 passwords are required, please rerun the " \
+        notice_str = "If more than 20 passwords are required, please rerun the " \
                  "tool or consider using the command-line version.\n\n"
     for _ in range(0, qty):
         pass_dict = {'password' : nupass.gen_pass()}

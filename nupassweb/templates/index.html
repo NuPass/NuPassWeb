@@ -8,7 +8,7 @@
   <script type="text/javascript">
     function getPasses() {
       $.getJSON('/gen_pass', {
-          qty: 5
+          qty: $('input[id="quantity"]').val()
         }, function(data) {
           result = data.notice_str;
           for (i in data.passwords) {
@@ -23,7 +23,7 @@
         return false;
     }
     $(function() {
-      $('a#regen').bind('click', getPasses);
+      $('button#regenBtn').bind('click', getPasses);
     });
   </script>
   <style>
@@ -49,7 +49,16 @@
   <div class="container">
     <p>Here are some passwords:</p>
     <textarea id="result" class="form-control" rows="5"></textarea>
-    <p><a href="javascript:void();" id="regen">Get More Passwords</a></p>
+    <p>
+    <form class="form-inline">
+      <div class="form-group">
+        <label class="control-label" for="quantity">Generate </label>
+        <input size="1" type="text" class="form-control" id="quantity" value="5">
+        <label class="control-label" for="regenBtn"> more passwords</label>
+        <button type="button" class="btn btn-default" id="regenBtn">Go!</button>
+      </div>
+    </form>
+    <p>
   </div>
 
   <footer class="footer">
