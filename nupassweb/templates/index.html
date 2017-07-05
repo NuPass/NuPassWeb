@@ -5,6 +5,27 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    function getPasses() {
+      $.getJSON('/gen_pass', {
+          qty: 5
+        }, function(data) {
+          result = data.notice_str;
+          for (i in data.passwords) {
+            if (i > 0) {
+              result += "\n";
+            }
+            result += data.passwords[i].password;
+          }
+          $("#result").attr("rows", data.rows);
+          $("#result").text(result);
+        });
+        return false;
+    }
+    $(function() {
+      $('a#regen').bind('click', getPasses);
+    });
+  </script>
   <style>
     .footer {
   position: absolute;
@@ -18,7 +39,7 @@
   </style>
   <title>NuPassWeb</title>
 </head>
-<body>
+<body onload="getPasses();">
   <div class="container">
     <div class="jumbotron">
       <h1>NuPassWeb</h1>
@@ -27,8 +48,8 @@
   </div>
   <div class="container">
     <p>Here are some passwords:</p>
-    <textarea class="form-control" rows="5">{{ passwords }}</textarea>
-    <p><br />Refresh the page for more passwords.</p>
+    <textarea id="result" class="form-control" rows="5"></textarea>
+    <p><a href="javascript:void();" id="regen">Get More Passwords</a></p>
   </div>
 
   <footer class="footer">
