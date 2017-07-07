@@ -4,4 +4,3 @@ python:
   - "3.5"
 script:
   - python -m unittest tests.npwtestcase
-  - python3 -m unittest tests.npwtestcase
