@@ -39,3 +39,15 @@ def gen_pass():
         pass_list.append(pass_dict)
 
     return jsonify(rows=notice+qty, notice_str=notice_str, passwords=pass_list)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("error.html", error_code='404', 
+                           error_msg="The page you're looking for can't be found."
+                           ), 404
+
+@app.errorhandler(500)
+def int_server_error(e):
+    return render_template("error.html", error_code='500', 
+                           error_msg="Something went wrong. We're looking into it."
+                           ), 500
