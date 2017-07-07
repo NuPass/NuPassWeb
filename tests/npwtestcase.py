@@ -14,16 +14,18 @@ from nupassweb import app
 class NPWTestCase(unittest.TestCase):
     """Class for the testing of NuPassWeb."""
 
+    def setUp(self):
+        """Setup test client."""
+        self.tester = app.test_client(self)
+
     def test_index(self):
         """Tests the index page."""
-        tester = app.test_client(self)
-        response = tester.get('/', content_type='html/text')
+        response = self.tester.get('/', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
     def test_gen_pass_short(self):
         """Tests the gen_pass view for proper JSON on normal quantity."""
-        tester = app.test_client(self)
-        response = tester.get('/gen_pass', query_string={'qty': '5'})
+        response = self.tester.get('/gen_pass', query_string={'qty': '5'})
         data = json.loads(response.data)
         self.assertEqual(data["notice_str"], "")
         self.assertEqual(len(data["passwords"]), 5)
@@ -31,8 +33,7 @@ class NPWTestCase(unittest.TestCase):
 
     def test_gen_pass_long(self):
         """Tests the gen_pass view for proper JSON on oversized quantity."""
-        tester = app.test_client(self)
-        response = tester.get('/gen_pass', query_string={'qty': '45'})
+        response = self.tester.get('/gen_pass', query_string={'qty': '45'})
         data = json.loads(response.data)
         self.assertEqual(data["notice_str"],
                          "If more than 20 passwords are required, please " +
