@@ -42,5 +42,10 @@ class NPWTestCase(unittest.TestCase):
         self.assertEqual(len(data["passwords"]), 20)
         self.assertEqual(data["rows"], 22)
 
+    def test_404_page(self):
+        """Verify we get a 404 error on a garbage path."""
+        response = self.tester.get('/bad_path789456')
+        self.assertEqual(response.status_code, 404)
+
 if __name__ == '__main__':
     unittest.main()
