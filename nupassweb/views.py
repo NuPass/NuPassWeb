@@ -4,17 +4,19 @@
 
     The URL processing portion of the application.
 
-    :copyright: (c) 2017 by Sean Callaway.
+    :copyright: (c) 2019 by Sean Callaway.
     :license: GNU GPL v2, see LICENSE for more details.
 """
 from flask import render_template, request, jsonify
 import nupass
 from nupassweb import app
 
+
 @app.route('/')
 def index():
     """Main page view."""
     return render_template('index.html')
+
 
 @app.route('/gen_pass')
 def gen_pass():
@@ -40,11 +42,13 @@ def gen_pass():
 
     return jsonify(rows=notice+qty, notice_str=notice_str, passwords=pass_list)
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("error.html", error_code='404', 
                            error_msg="The page you're looking for can't be found."
                            ), 404
+
 
 @app.errorhandler(500)
 def int_server_error(e):
