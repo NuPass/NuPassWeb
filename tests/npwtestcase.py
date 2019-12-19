@@ -4,12 +4,13 @@
 
     A test of NuPassWeb.
 
-    :copyright: (c) 2017 by Sean Callaway.
+    :copyright: (c) 2019 by Sean Callaway.
     :license: GNU GPL v2, see LICENSE for more details.
 """
 import unittest
 from flask import json
 from nupassweb import app
+
 
 class NPWTestCase(unittest.TestCase):
     """Class for the testing of NuPassWeb."""
@@ -46,6 +47,7 @@ class NPWTestCase(unittest.TestCase):
         """Verify we get a 404 error on a garbage path."""
         response = self.tester.get('/bad_path789456')
         self.assertEqual(response.status_code, 404)
+
 
 if __name__ == '__main__':
     unittest.main()
