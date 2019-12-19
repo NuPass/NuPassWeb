@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 
 COPY . /usr/src/app/
 
-ENTRYPOINT ["gunicorn --bind 0.0.0.0:5000 manage:app"]
+CMD gunicorn --bind 0.0.0.0:5000 manage:app
