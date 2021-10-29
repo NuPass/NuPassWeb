@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" crossorigin="anonymous"
+        integrity="sha256-UDtbUHqpVVfXmdJcQVU/bfDEr9xldf3Dbd0ShD0Uf/Y=">
   <style>
     .footer {
   position: absolute;
@@ -19,21 +18,24 @@
   <title>NuPassWeb</title>
 </head>
 <body>
-  <div class="container">
-    <div class="jumbotron">
-      <h1>NuPassWeb</h1>
-      <p>Because your users can't deal with <a href="http://linux.die.net/man/1/pwmake">pwmake</a></p>
+  <section class="hero is-medium is-info">
+    <div class="hero-body">
+      <p class="title">NuPassWeb</p>
+      <p class="subtitle">Because your users can't deal with <a href="http://linux.die.net/man/1/pwmake">pwmake</a></p>
     </div>
-  </div>
-  <div class="container">
-    <h1>{{ error_code }} Error - Uh oh!</h1>
-    <p>{{ error_msg }}</p>
-  </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title">{{ error_code }} Error - Uh oh!</h1>
+      <p>{{ error_msg }}</p>
+    </div>
+  </section>
 
   <footer class="footer">
     <div class="container">
       <span class="text-muted">
-        Copyright &copy; 2017 by <a href="https://github.com/seancallaway">Sean Callaway</a>. NuPassWeb is <a href="https://www.gnu.org/philosophy/free-sw.en.html" target="_blank">Free Software</a> available under the GPLv2. See our <a href="https://github.com/NuPass/NuPassWeb">GitHub</a>.
+        Copyright &copy; 2017-2021 by <a href="https://github.com/seancallaway">Sean Callaway</a>. NuPassWeb is <a href="https://www.gnu.org/philosophy/free-sw.en.html" target="_blank">Free Software</a> available under the GPLv2. See our <a href="https://github.com/NuPass/NuPassWeb">GitHub</a>.
       </span>
     </div>
   </footer>

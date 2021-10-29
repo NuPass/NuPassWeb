@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" crossorigin="anonymous"
+        integrity="sha256-UDtbUHqpVVfXmdJcQVU/bfDEr9xldf3Dbd0ShD0Uf/Y=">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript">
     function getPasses() {
       $.getJSON('/gen_pass', {
@@ -40,31 +40,45 @@
   <title>NuPassWeb</title>
 </head>
 <body onload="getPasses();">
-  <div class="container">
-    <div class="jumbotron">
-      <h1>NuPassWeb</h1>
-      <p>Because your users can't deal with <a href="http://linux.die.net/man/1/pwmake">pwmake</a></p>
+  <section class="hero is-medium is-info">
+    <div class="hero-body">
+      <p class="title">NuPassWeb</p>
+      <p class="subtitle">Because your users can't deal with <a href="http://linux.die.net/man/1/pwmake">pwmake</a></p>
     </div>
-  </div>
-  <div class="container">
-    <p>Here are some passwords:</p>
-    <textarea id="result" class="form-control" rows="5"></textarea>
-    <p>
-    <form class="form-inline">
-      <div class="form-group">
-        <label class="control-label" for="quantity">Generate </label>
-        <input size="1" type="text" class="form-control" id="quantity" value="5">
-        <label class="control-label" for="regenBtn"> more passwords</label>
-        <button type="button" class="btn btn-default" id="regenBtn">Go!</button>
+  </section>
+
+  <section class="section">
+    <div class="block">
+      <div class="field">
+        <label class="label">Here are some passwords:</label>
+        <textarea id="result" class="textarea" rows="5"></textarea>
       </div>
-    </form>
-    <p>
-  </div>
+    </div>
+    <div class="block">
+      <form class="form-inline">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="quantity">Generate </label>
+          </div>
+          <div class="field-body">
+            <input size="1" type="text" class="input" id="quantity" value="5">
+          </div>
+          <div class="field-label is-normal">
+            <label class="control-label" for="regenBtn"> more passwords</label>
+          </div>
+          <div class="field">
+            <button type="button" class="button is-link" id="regenBtn">Go!</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </section>
 
   <footer class="footer">
     <div class="container">
       <span class="text-muted">
-        Copyright &copy; 2017 by <a href="https://github.com/seancallaway">Sean Callaway</a>. NuPassWeb is <a href="https://www.gnu.org/philosophy/free-sw.en.html" target="_blank">Free Software</a> available under the GPLv2. See our <a href="https://github.com/NuPass/NuPassWeb">GitHub</a>.
+        Copyright &copy; 2017-2021 by <a href="https://github.com/seancallaway">Sean Callaway</a>. NuPassWeb is <a href="https://www.gnu.org/philosophy/free-sw.en.html" target="_blank">Free Software</a> available under the GPLv2. See our <a href="https://github.com/NuPass/NuPassWeb">GitHub</a>.
       </span>
     </div>
   </footer>
